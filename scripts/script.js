@@ -45,13 +45,17 @@ window.addEventListener('popstate', (event) => {
     body.classList.remove('settings');
     body.classList.remove('single-entry');
     
-    body.removeChild('entry-page');
+    //body.removeChild('entry-page');
   }
   //  Going from settings back to some entry page
   else
   {
-
+    // let data = 
+    // let string = event.
+    // history.replaceState(data, '', string);
+    journal_entries.item(event.state['page']);
   }
   // history.back();
-  // console.log(event.state['page']);
+  console.log(event.state['page']);
+  console.log(journal_entries.item(event.state['page']));
 });
