@@ -7,6 +7,7 @@ let body = document.querySelector('body');
 let title = document.querySelector('header').querySelector('h1');
 let journal_entries;
 let settings = document.querySelector('header').querySelector('img');
+
 // Make sure you register your service worker here too
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,15 +33,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//  Switch to Home page using title
+title.addEventListener('click', (event) => {
+  //  Only delete element entry-page if it exists
+  if(document.querySelector('entry-page')){
+    let entry_page = document.querySelector('entry-page');
+    body.removeChild(entry_page);
+  }
 
+  title.textContent = 'Journal Entries';
+  body.classList.remove('settings');
+  body.classList.remove('single-entry');
+})
+
+//  Switch to Settings page using icon
 settings.addEventListener('click', (event) => {
   history.pushState({page: 'settings'}, '', '#settings');
   setState();
 })
 
+//  Functionality for going back
 window.addEventListener('popstate', (event) => {
-  //  Going from some page to home
   let entry_page = document.querySelector('entry-page');
+  
+  //  Going from some page to home
   if(event.state['page'] == 'home'){
     title.textContent = 'Journal Entries';
     body.classList.remove('settings');
@@ -59,7 +75,5 @@ window.addEventListener('popstate', (event) => {
     
     setState(event.state['page'], journal_entry);
   }
-  // history.back();
-  console.log(event.state['page']);
 });
 

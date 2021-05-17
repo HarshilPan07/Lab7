@@ -42,7 +42,6 @@ router.setState = function(index, journal_entry) {
   
   let body = document.querySelector('body');
   let title = document.querySelector('header').querySelector('h1');
-  console.log('current hash = ' + window.location.hash);
   
   if(index || journal_entry) {
     console.log(journal_entry.entry);  
