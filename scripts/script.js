@@ -51,12 +51,15 @@ window.addEventListener('popstate', (event) => {
   //  Going from settings back to some entry page
   else
   {
-    // let data = 
-    // let string = event.
-    // history.replaceState(data, '', string);
-    journal_entries.item(event.state['page']);
+    let journal_entry = journal_entries.item(event.state['page']);
+    
+    body.classList.remove('settings');
+    body.classList.add('single-entry');
+    body.removeChild(entry_page);
+    
+    setState(event.state['page'], journal_entry);
   }
   // history.back();
   console.log(event.state['page']);
-  console.log(journal_entries.item(event.state['page']));
 });
+
