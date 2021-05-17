@@ -46,7 +46,16 @@ router.setState = function(index, journal_entry) {
   
   if(index || journal_entry) {
     console.log(journal_entry.entry);  
-    let entry_page = document.querySelector('entry-page');
+    let entry_page;
+    
+    // Check if element entry-page exists
+    if(document.querySelector('entry-page')) {
+      entry_page = document.querySelector('entry-page');
+    }else
+    {
+      entry_page  = document.createElement('entry-page');
+      body.appendChild(entry_page);  
+    }
     
     entry_page.entry = journal_entry.entry;
     title.textContent = `Entry ${index+1}`;

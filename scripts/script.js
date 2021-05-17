@@ -40,12 +40,13 @@ settings.addEventListener('click', (event) => {
 
 window.addEventListener('popstate', (event) => {
   //  Going from some page to home
+  let entry_page = document.querySelector('entry-page');
   if(event.state['page'] == 'home'){
     title.textContent = 'Journal Entries';
     body.classList.remove('settings');
     body.classList.remove('single-entry');
     
-    //body.removeChild('entry-page');
+    body.removeChild(entry_page);
   }
   //  Going from settings back to some entry page
   else
