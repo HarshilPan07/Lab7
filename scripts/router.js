@@ -35,11 +35,7 @@ router.setState = function(index, journal_entry) {
    *    1. You may add as many helper functions in this file as you like
    *    2. You may modify the parameters of setState() as much as you like
    */
-
-  window.onpopstate = function(event) {
-    alert(`location: ${document.location}, state: ${JSON.stringify(event.state)}`);
-  }
-  
+    
   let body = document.querySelector('body');
   let title = document.querySelector('header').querySelector('h1');
   

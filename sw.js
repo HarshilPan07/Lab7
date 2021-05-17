@@ -51,7 +51,7 @@ self.addEventListener('fetch', function(event) {
             return response;
           }
         
-          return fetch(event.request).then(
+          return fetch('https://cse110lab6.herokuapp.com/entries').then(
             function(response) {
               // Check if we received a valid response
               if(!response || response.status !== 200 || response.type !== 'basic') {
